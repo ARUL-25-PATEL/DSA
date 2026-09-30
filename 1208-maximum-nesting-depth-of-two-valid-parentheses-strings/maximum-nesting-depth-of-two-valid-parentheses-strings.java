@@ -8,9 +8,9 @@ class Solution {
         for(char ch : seq.toCharArray()){
             if(ch == '('){
                 open++;
-                ans[i] = open % 2;
+                ans[i] = (open +1 )% 2;
             }else{
-                ans[i] = open % 2;
+                ans[i] = (open+1) % 2;
                 open--;
             }
             i++;
