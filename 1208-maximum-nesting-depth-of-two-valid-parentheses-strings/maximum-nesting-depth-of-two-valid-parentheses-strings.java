@@ -8,9 +8,9 @@ class Solution {
 
             if (ch == '(') {
                 depth++;
-                ans[i] = (depth+1 )% 2;
+                ans[i] = (depth)% 2;
             } else {
-                ans[i] = (depth +1 )% 2;
+                ans[i] = (depth )% 2;
                 depth--;
             }
         }
