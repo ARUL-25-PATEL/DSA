@@ -1,31 +1,27 @@
 class Solution {
     public boolean checkValidString(String s) {
-        Stack<Integer> open = new Stack<>();
-        Stack<Integer> str = new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            char x = s.charAt(i);
-            if (x == '(')
-                open.push(i);
-            else if (x == '*')
-                str.push(i);
-            else {
-                if (open.isEmpty() && str.isEmpty())
-                    return false;
-                else if (open.isEmpty())
-                    str.pop();
-                else
-                    open.pop();
-            }
-        }
-        if (open.isEmpty())
-            return true;
-        if (str.isEmpty())
-            return false;
-        while (!open.isEmpty() && !str.isEmpty() && open.peek() < str.peek()) {
-            str.pop();
-            open.pop();
-        }
+        byte dp[][] = new byte[101][101]; 
+        return fun(s,0,0,dp);
+    }
+    boolean fun(String s, int i, int count, byte[][] dp){
+        if(i==s.length() && count==0) return true;
+        if(count<0 || i==s.length()) return false;
+        if(dp[i][count]!=0) return dp[i][count] == 1;
+        boolean ans = false;
+        if(s.charAt(i)=='*') {
+            ans =  fun(s,i+1,count, dp) || 
+                    fun(s,i+1,count+1, dp )||
+                    fun(s,i+1,count-1,dp);
+        }else if (s.charAt(i) == '(') {
 
-        return open.isEmpty();
+            ans = fun(s, i + 1, count + 1, dp);
+
+        } else {
+
+            ans = fun(s, i + 1, count - 1, dp);
+        }
+        dp[i][count] = (byte) (ans ? 1 : -1);
+        return ans;
+
     }
 }
