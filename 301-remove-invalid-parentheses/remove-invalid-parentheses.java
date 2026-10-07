@@ -14,7 +14,7 @@ class Solution {
         if(idx==s.length()) {
             if(open!=close) return ;
             String temp = sb.toString();
-            if(!valid(temp)) return;
+            // if(!valid(temp)) return;
             if(temp.length()<arr[0]) return;
             if(temp.length()>arr[0]) set.clear();
             set.add(temp);
@@ -38,13 +38,13 @@ class Solution {
 
 
     }
-    boolean valid(String x) {
-        int b=0;
-        for(char t : x.toCharArray()) {
-            if(t=='(') b++;
-            else if(t==')') b--;
-        }
-        return b==0;
-    }
+    // boolean valid(String x) {
+    //     int b=0;
+    //     for(char t : x.toCharArray()) {
+    //         if(t=='(') b++;
+    //         else if(t==')') b--;
+    //     }
+    //     return b==0;
+    // }
 
 }
