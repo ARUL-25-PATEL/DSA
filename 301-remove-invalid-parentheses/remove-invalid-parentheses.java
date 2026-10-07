@@ -2,11 +2,8 @@ class Solution {
     public List<String> removeInvalidParentheses(String s) {
         Set<String> set = new HashSet<>();
         StringBuilder sb = new StringBuilder();
-
         int arr[] = {0};
-
         fun(set, sb, s, 0, 0, 0, arr);
-
         return new ArrayList<>(set);
     }
 
