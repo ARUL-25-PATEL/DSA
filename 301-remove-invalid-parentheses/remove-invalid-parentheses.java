@@ -15,7 +15,7 @@ class Solution {
             if(open!=close) return ;
             String temp = sb.toString();
             // if(!valid(temp)) return;
-            if(temp.length()<arr[0]) return;
+            if(temp.length()<arr[0] ||  set.contains(temp)) return;
             if(temp.length()>arr[0]) set.clear();
             set.add(temp);
             arr[0] = temp.length();
