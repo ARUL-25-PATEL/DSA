@@ -12,7 +12,7 @@ class Solution {
                     open++;
                     result++;
                 }
-                else if(i+1<n && s.charAt(i)==s.charAt(i+1)){
+                if(i+1<n && ')'==s.charAt(i+1)){
                     open--;
                     i+=2;
                 }else {
