@@ -7,12 +7,12 @@ class Solution {
             feq[x]++;
             t/=10;
         }
-        int pow = 1;
-        while(pow<=1000000000){
+        long pow = 1;
+        while(pow<=Integer.MAX_VALUE){
             int feq2[]  = new int[10];
-            int temp = pow;
+            long temp = pow;
             while(temp!=0) {
-                 int x = temp%10;
+                 int x = (int) temp%10;
                  feq2[x]++;
                  temp/=10;
             }
