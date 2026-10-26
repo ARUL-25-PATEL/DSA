@@ -2,11 +2,12 @@ class Solution {
 
     long helpIslands(int[][] grid, int i, int j, int m, int n) {
         if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0) {
-            return 0;
+            return 0 ;
         }
-        int sum = grid[i][j];
+        int temp = grid[i][j];
         grid[i][j] = 0;
-        return sum + helpIslands(grid, i - 1, j, m, n) + 
+        return temp+
+        helpIslands(grid, i - 1, j, m, n )+
         helpIslands(grid, i + 1, j, m, n)+
         helpIslands(grid, i, j - 1, m, n)+
         helpIslands(grid, i, j + 1, m, n);
@@ -19,7 +20,8 @@ class Solution {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] > 0) {
-                    if (helpIslands(grid, i, j, m, n) % k == 0) {
+                   long sum =  helpIslands(grid, i, j, m, n);
+                    if (sum % k == 0) {
                         count++;
                     }
                 }
