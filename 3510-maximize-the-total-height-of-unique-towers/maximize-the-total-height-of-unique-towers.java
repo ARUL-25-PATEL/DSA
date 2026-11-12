@@ -5,11 +5,11 @@ class Solution {
         long sum = m[n-1],last=sum;
         for(int i = n-2;i>=0;i--) {
             int x = m[i];
-           if(m[i+1]<=x) m[i] = m[i+1]-1;
-           sum += m[i];
-
+            if(last<=x) sum += --last;
+            else sum+=x;
+            last = Math.min(x,last);
+            if(last<1) return -1;
         }
-        if(m[0]<=0) return -1;
         return sum;
     }
 }
