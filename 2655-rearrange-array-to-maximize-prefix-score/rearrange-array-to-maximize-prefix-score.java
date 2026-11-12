@@ -11,7 +11,7 @@ class Solution {
             if (sum > 0) {
                 count++;
             } else {
-                break;
+               return count;
             }
         }
 
